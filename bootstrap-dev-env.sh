@@ -242,7 +242,6 @@ install_macos() {
     echo "==> Rust/Cargo already installed. Skipping rustup-init."
   else
     brew_install_if_missing rustup-init rustup-init
-    rustup-init -y
 
     # shellcheck source=/dev/null
     source "$HOME/.cargo/env"
@@ -308,7 +307,7 @@ setup_dotfiles() {
   link_or_copy "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 
   if [[ "$OS" == "Darwin" ]]; then
-    link_or_copy "$DOTFILES_DIR/wezterm" "$HOME/.config/wezterm"
+    link_or_copy "$DOTFILES_DIR/wezterm/.wezterm.lua" "$HOME/.wezterm.lua"
   fi
 }
 
